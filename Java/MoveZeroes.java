@@ -12,14 +12,14 @@ public class MoveZeroes{
         // case 4: [0,0,1,2] => [1,2,0,0]
         // case 5: [0,1,0,2,0,3] => [1,2,3,0,0,0]
 
-        // 2 pointers
+        // 2 pointers/sliding window approach
 
         /*
         pt1 points to 1st element
         pt2 is one step ahead of pt1
         check if value at pt1 == 0
             yes => check if value at pt2 != 0
-                yes => swap values at both pointers and move pointers   forward
+                yes => swap values at both pointers and move pointers forward
                 no => only move the second pointer
             no => just move both pointers forward
 
