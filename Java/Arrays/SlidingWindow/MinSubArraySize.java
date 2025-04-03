@@ -41,13 +41,23 @@ public class MinSubArraySize{
     }
 
     public static void main(String [] args){
-        int [] nums = {2,3,1,2,4,3};
-        int target = 7;
+        int [] nums1 = {2,3,1,2,4,3};
+        int target1 = 7;
 
-        System.out.println(minSubArraySize(target, nums)); // expected output: 2
+        System.out.println(minSubArraySize(target1, nums1)); // expected output: 2
         // the subarray is [4,3] or [2,4,3]
         // the length of the subarray is 2
         // the sum of the subarray is 7
         // the minimal length of the subarray is 2
+
+        int [] nums2 = {1,4,4};
+        int target2 = 4;
+
+        System.out.println(minSubArraySize(target2, nums2)); // expected output: 1
+        // the subarray is [4]
+        // the length of the subarray is 1
+        // the sum of the subarray is 4
+        // the minimal length of the subarray is 1
+        
     }
 }
