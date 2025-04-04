@@ -1,5 +1,6 @@
 package Java.Arrays.SlidingWindow;
 import java.util.HashSet;
+import java.util.Set;
 
 public class ContainDuplicates2{
     // hashset are useful for checking duplicates
@@ -13,23 +14,19 @@ public class ContainDuplicates2{
     // space complexity => O(k)
     public static boolean containDuplicates(int [] nums, int k){
         // Use a HashSet to maintain the sliding window of size k
-        HashSet<Integer> window = new HashSet<>();
+        Set<Integer> window = new HashSet<>();
+        int L = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            // If the current element is already in the window, we found a duplicate
-            if (window.contains(nums[i])) {
+        for (int R = 0; R < nums.length; R++) {
+            if (R - L > k) {
+                window.remove(nums[L]);
+                L++;
+            }
+            if (window.contains(nums[R])) {
                 return true;
             }
-
-            // Add the current element to the window
-            window.add(nums[i]);
-
-            // If the window size exceeds k, remove the oldest element
-            if (window.size() > k) {
-                window.remove(nums[i - k]);
-            }
+            window.add(nums[R]);
         }
-
         return false;
     }
 }
