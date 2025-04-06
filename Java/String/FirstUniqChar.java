@@ -15,10 +15,22 @@ public class FirstUniqChar{
         // space complexity => O(n)
 
         HashMap<Character, Integer> map = new HashMap<>();
-
+        // iterate through the string and store the frequency of each character
         for (int i = 0; i < s.length(); i++){
             char c = s.charAt(i);
+            // if the character is not in the map, add it with a frequency of 1
+            // if the character is already in the map, increment its frequency
             map.put(c, map.getOrDefault(c, 0) + 1);
+
+            /* the above line is equivalent to the following lines
+             * if (map.containsKey(s.charAt(i))){
+                int frequency = map.get(s.charAt(i));
+                map.put(s.charAt(i), frequency + 1);
+            }
+            else{
+                map.put(s.charAt(i), 1);
+            }
+             */
         }
 
         for (int i = 0; i < s.length(); i++){
