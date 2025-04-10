@@ -1,4 +1,4 @@
-package Java.Arrays;
+package Java.Arrays.MathAndGeometry;
 /*
     Given an integer n, return any array containing n unique integers such that they add up to 0.
     Example 1:

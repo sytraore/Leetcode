@@ -1,4 +1,4 @@
-package Java.String;
+package Java.String.HashMaps;
 import java.util.HashMap;
 
 public class FirstUniqChar{
