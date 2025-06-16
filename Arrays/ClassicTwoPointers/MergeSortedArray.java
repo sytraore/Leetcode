@@ -2,12 +2,6 @@ package Arrays.ClassicTwoPointers;
 public class MergeSortedArray {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         // implement brut force
-
-
-
-
-
-        
         int i = m - 1; // Pointer for nums1
         int j = n - 1; // Pointer for nums2
         int k = m + n - 1; // Pointer for the merged array (nums1)
