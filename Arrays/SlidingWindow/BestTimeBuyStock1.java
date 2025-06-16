@@ -1,4 +1,4 @@
-package Java.Arrays.SlidingWindow;
+package Arrays.SlidingWindow;
 
 public class BestTimeBuyStock1 {
     public static int maxProfit(int [] prices){

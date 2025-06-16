@@ -1,4 +1,4 @@
-package Java.Arrays.ClassicTwoPointers;
+package Arrays.ClassicTwoPointers;
 
 public class MoveZeroes{
     public void moveZeroes(int[] nums) {

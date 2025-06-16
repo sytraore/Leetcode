@@ -1,4 +1,4 @@
-package Java.String.Graph;
+package Graph;
 
 import java.util.Arrays;
 /*

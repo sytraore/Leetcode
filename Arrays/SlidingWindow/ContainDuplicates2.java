@@ -1,4 +1,4 @@
-package Java.Arrays.SlidingWindow;
+package Arrays.SlidingWindow;
 import java.util.HashSet;
 import java.util.Set;
 
