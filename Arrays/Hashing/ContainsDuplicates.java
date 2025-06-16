@@ -22,13 +22,11 @@ public class ContainsDuplicates{
                 }
             }
         }
-
         return false; 
         
         Issue with this method: O(n^2) time complexity exceeds the time limit set by the testers when nums is a huge array.
 
         Alternative/Optimal solution: hash set
-
         store each value in a hash set and if the hash set already contains a value, return true
         otherwise, return false
         Time complexity: O(n)

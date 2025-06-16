@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="023f4d1e-0dcb-4c2f-bec5-b78317fa846d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arrays/HashMapsAndHashSets/ContainsDuplicates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arrays/HashMapsAndHashSets/TwoSumOne.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arrays/Hashing/ContainsDuplicates.java" beforeDir="false" afterPath="$PROJECT_DIR$/Arrays/Hashing/ContainsDuplicates.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Arrays.Hashing.ContainsDuplicates.executor": "Run",
     "Application.BestTimeBuyStock1.executor": "Run",
     "Application.ContainsDuplicates.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -55,15 +55,34 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="BestTimeBuyStock1" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Arrays.Hashing.ContainsDuplicates" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Arrays.Hashing.ContainsDuplicates" />
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Arrays.Hashing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BestTimeBuyStock1" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Arrays.SlidingWindow.BestTimeBuyStock1" />
       <module name="Leetcode" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Arrays/SlidingWindow" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Arrays.SlidingWindow.*" />
@@ -75,7 +94,7 @@
       </method>
     </configuration>
     <configuration name="ContainsDuplicates" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Arrays.Hashing.ContainsDuplicates" />
       <module name="Leetcode" />
@@ -110,7 +129,8 @@
       <workItem from="1750078166779" duration="172000" />
       <workItem from="1750078352196" duration="2000" />
       <workItem from="1750078361512" duration="422000" />
-      <workItem from="1750078804629" duration="1493000" />
+      <workItem from="1750078804629" duration="1863000" />
+      <workItem from="1750082699125" duration="1844000" />
     </task>
     <servers />
   </component>
@@ -127,5 +147,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Leetcode$Arrays_Hashing_ContainsDuplicates.ic" NAME="Arrays.Hashing.ContainsDuplicates Coverage Results" MODIFIED="1750082966714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>Arrays.Hashing.*</FILTER>
+    </SUITE>
   </component>
 </project>
