@@ -1,4 +1,4 @@
-package Arrays.HashMapsAndHashSets;
+package Arrays.Hashing;
 import java.util.HashSet;
 
 public class ContainsDuplicates{
@@ -35,15 +35,16 @@ public class ContainsDuplicates{
         Space complexity: O(n)
         */
 
-        HashSet<Integer> set = new HashSet<>();
-        int size = nums.length;
-        for (int i = 0; i < size; i++) {
-            if (set.contains(nums[i])){
+        if (nums.length == 0){
+            return false;
+        }
+        HashSet<Integer> uniq = new HashSet();
+
+        for (int i: nums){
+            if (!uniq.add(i)){
                 return true;
             }
-            set.add(nums[i]);
         }
-
         return false;
     }
 
