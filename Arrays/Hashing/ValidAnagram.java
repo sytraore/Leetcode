@@ -45,6 +45,26 @@ public class ValidAnagram {
                 return false;
             }
         }
+        //compare the frequencies
+        for (int i = 0; i < t.length(); i++){
+            char c = t.charAt(i);
+            if (!map1.containsKey(c)){
+                return false;
+            }
+            // update frequeny
+            map1.put(c, map1.get(c)-1);
+            // check if some characters remain
+            if (map1.get(c) < 0){
+                return false;
+            }
+        }
+
+        // if both words have the same length, and they both have the same characters, they can only be anagrams if they are using the same frequencies of characters, hence the characters must have a perfect 0 count
+        // for (int i: map1.values()){
+        //     if (i != 0){
+        //         return false;
+        //     }
+        // }
         
         return true;
     }
