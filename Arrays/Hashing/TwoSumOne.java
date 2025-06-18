@@ -9,6 +9,22 @@ import java.util.HashMap;
  */
 public class TwoSumOne {
     public int[] twoSum(int[] nums, int target) {
+
+        /* 
+         * Brute force solution:
+         * // brute force
+            for (int i = 0; i < nums.length; i++){
+                for (int j = 1; j < nums.length; j++){
+                    if ((nums[i] + nums[j] == target) && i != j){
+                        int[] result = {i, j};
+                        return result;
+                    }
+                }
+            }
+            return null;
+         * 
+         */
+
         // Create a HashMap to store the numbers and their indices
         // The key is the number and the value is its index
         // The time complexity is O(n) and the space complexity is O(n)
