@@ -19,7 +19,7 @@ public class ValidAnagram {
             return false;
         }
 
-        HashMap<Character, Integer> map1 = new HashMap();
+        HashMap<Character, Integer> map1 = new HashMap<Character, Integer>();
 
         // fill the maps
         for (int i = 0; i < s.length(); i++){

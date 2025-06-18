@@ -36,7 +36,7 @@ public class ContainsDuplicates{
         if (nums.length == 0){
             return false;
         }
-        HashSet<Integer> uniq = new HashSet();
+        HashSet<Integer> uniq = new HashSet<Integer>();
 
         for (int i: nums){
             if (!uniq.add(i)){
