@@ -90,8 +90,14 @@ public class GroupAnagrams {
     }
 
     public static void main(String[] args) {
-        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> groupedAnagrams = groupAnagrams(strs);
+        String[] strs1 = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        String[] strs2 = {"a"};
+        String[] strs3 = {""};
+        List<List<String>> groupedAnagrams = groupAnagrams(strs1);
         System.out.println(groupedAnagrams); // Output: [[eat, tea, ate], [tan, nat], [bat]]
+        List<List<String>> groupedAnagrams2 = groupAnagrams(strs2);
+        System.out.println(groupedAnagrams2); // Output: [["a"]]
+        List<List<String>> groupedAnagrams3 = groupAnagrams(strs3);
+        System.out.println(groupedAnagrams3); // Output: [[""]]
     }
 }
