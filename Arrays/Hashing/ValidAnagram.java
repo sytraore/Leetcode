@@ -8,10 +8,16 @@ public class ValidAnagram {
             s = "" and t = "" => true
             s = "v" and t = "v" => true
 
-            use one hashmap to store the characters of one string with their frequencies
+            A brute force approach would be to sort both strings and compare them
+            but that would take O(nlogn) time complexity
+
+            Optimal solution: use one hashmap to store the characters of one string with their frequencies
             compare the frequency of each character of one string to the frequency of each character of the other string
             if 2 characters have different frequency => false
-            if one character present in one string and not present in the other => false 
+            if one character present in one string and not present in the other => false
+
+            Time complexity: O(n)
+            Space complexity: O(n)
          */
         
         // check for length

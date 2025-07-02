@@ -16,19 +16,26 @@ public class ContainsDuplicates{
         }
         int size = nums.length;
         for (int i = 0; i < size; i++) {
-            for (int j = i + 1; j < size; j ++){
-                if (nums[i] == nums[j]){
+            int j = 0;
+            while (j < size) {
+                if (i == j) {
+                    j++;
+                    continue;
+                }
+                if (nums[j] == nums[i]){
                     return true;
                 }
+                j++;
             }
         }
         return false; 
         
-        Issue with this method: O(n^2) time complexity exceeds the time limit set by the testers when nums is a huge array.
+        Issue with this method: does not do well with large arrays due to O(n^2) time complexity 
 
         Alternative/Optimal solution: hash set
         store each value in a hash set and if the hash set already contains a value, return true
         otherwise, return false
+        
         Time complexity: O(n)
         Space complexity: O(n)
         */

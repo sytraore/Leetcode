@@ -7,15 +7,17 @@ import java.util.List;
 
 public class GroupAnagrams {
     public static List<List<String>> groupAnagrams(String[] strs) {
-        
-        List<List<String>> result = new ArrayList<>();
 
         /*
-            for each string, sort it and add it to a hash map if not already there as key. its value would be the string that has been sorted. if the key was in hash map, add the string to the list of values of the key.
+            for each string, sort it and add it to a hash map if not already there as key. 
+            its value would be the string that has been sorted. 
+            if the key was in hash map, add the string to the list of values of the key.
             add the various list of values to result
 
-            Time complexity: O(m * n log n) where m is the number of strings and n is the length of the longest string
-         */
+            Time complexity: O(m * n log n) 
+            where m is the number of strings and n is the length of the longest string
+        
+        List<List<String>> result = new ArrayList<>();
         HashMap<String, List<String>> map = new HashMap<>();
 
         for (String s: strs){
@@ -35,25 +37,39 @@ public class GroupAnagrams {
             }
         }
 
+        // store the grouped anagrams in the result list
         for (String s: map.keySet()){
             result.add(map.get(s));
         }
 
         return result;
 
-        /*
-         * Optimal solution: Count the frequency of the characters in each string. Format the counting result to a string format, and use that format as a key to a hashmap. the value of the key will be a list of strings whose format match with the key. 
+        */
 
-         * List<List<String>> result = new ArrayList<>();
+        /* 
+         * Optimal solution: Count the frequency of the characters in each string. 
+         * Format the counting result to a string format, and use that format as a key to a hashmap.
+         * the value of the key will be a list of strings whose format match with the key. 
+         * 
+         * Time complexity: O(m * n)
+         * where m is the number of strings and n is the length of the longest string
+         * Space complexity: O(m * n)
+        */
+
+        List<List<String>> result = new ArrayList<>();
 
         HashMap<String, List<String>> map = new HashMap<>();
 
         for (String str:  strs){
             // count the frequency of each character in the string
+            // count represent the alphabet from 'a' to 'z'
+            // count[0] = frequency of 'a', count[1] = frequency of b
             int[] count = new int[26];
             for (char currentChar: str.toCharArray()){
                 // this is how to count a character frequency in a string
-                // we are using the ascii values of the characters to locate the character index in the string and then increase the value at of the number of occurences in the count array
+                // we are using the ascii values of the characters to locate the character index 
+                // in the string and then increase the value at of the number of occurences 
+                // in the count array
                 // for example, the ascii value of 'a' is 97 and the one for 'e' is 101
                 // => 'e' - 'a' = 4
                 // which means the character 'e' is at index 4 of the count array
@@ -85,8 +101,6 @@ public class GroupAnagrams {
         }
 
         return result;
-         * 
-         */
     }
 
     public static void main(String[] args) {
