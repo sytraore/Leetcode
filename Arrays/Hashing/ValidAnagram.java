@@ -8,51 +8,61 @@ public class ValidAnagram {
             s = "" and t = "" => true
             s = "v" and t = "v" => true
 
-            A brute force approach would be to sort both strings and compare them
-            but that would take O(nlogn) time complexity
-
-            Optimal solution: use one hashmap to store the characters of one string with their frequencies
-            compare the frequency of each character of one string to the frequency of each character of the other string
-            if 2 characters have different frequency => false
-            if one character present in one string and not present in the other => false
-
-            Time complexity: O(n)
+            A brute force approach is to sort both strings. If both strings are identique, they are anagrams.
+            Appropriate data structure: array
+            Appropriate algorithm: sorting
+            Time complexity: O(nlogn)
             Space complexity: O(n)
-         */
-        
-        // check for length
-        if (s.length() != t.length()){
+
+            char[] c1 = s.toCharArray(), c2 = t.toCharArray();
+            Arrays.sort(c1);
+            Arrays.sort(c2);
+            boolean result = Arrays.equals(c1, c2);
+            return result;
+        */
+
+        /*
+            Each letter in s must be found in t with the exact number of occurences.
+            => we are not looking for duplicates
+            => we are looking for each letter number of occurences
+                => hash map data structure is useful to track number of occurences for each letter.
+            => if one letter present in s and t but with different number of occurences, s and t are not anagrams
+        */
+
+        // if both strings have different length => not anagrams
+        int lenS = s.length(), lenT = t.length();
+
+        if (lenS != lenT){
             return false;
         }
 
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> map = new HashMap<>();
 
-        // fill the maps
-        for (int i = 0; i < s.length(); i++){
-            char c1 = s.charAt(i);
-            if (map.containsKey(c1)){
-                map.put(c1, map.get(c1)+1);
+        // store each letter of s with their frequency in the hashmap
+        for (int i = 0; i < lenS; i++){
+            Character c = s.charAt(i);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        // check if each letter in t occurs the same amount of times as each letter in s
+        for (int i = 0; i < lenT; i++){
+            Character c = t.charAt(i);
+            if (map.containsKey(c)){
+                // decrease the frequency number as a way to know that the letter in t is also in s
+                map.put(c, map.get(c) - 1);
+
+                // this is where we compare the number of ocuurences
+                // if the frequency for the current letter is less than 0
+                // there is a difference in number of occurences => not anagrams
+                if (map.get(c) < 0){
+                    return false;
+                }
             }
             else{
-                map.put(c1, 1);
+                return false;
             }
         }
 
-        //compare the frequencies of each character in t 
-        // with the frequencies in map
-        for (int i = 0; i < t.length(); i++){
-            char c = t.charAt(i);
-            if (!map.containsKey(c)){
-                return false;
-            }
-            // update frequeny
-            map.put(c, map.get(c)-1);
-            // check if some characters remain
-            if (map.get(c) < 0){
-                return false;
-            }
-        }
-        
         return true;
     }
 

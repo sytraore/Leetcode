@@ -7,43 +7,45 @@ import java.util.Map;
 
 public class TopKFrequentElement {
     public static int[] topKFrequent(int[] nums, int k) {
-        /*
-            Use a hash map to get each number frequncy. Compare each pair of key-value of the map
-            Store k keys of the resulting comparison in an array
-            Return the array
-         */
+        /**
+        We need to track 2 things in order to get the top k frequent values.
+            => we need to know the value and its number of occurences in the array
+            => once that is known, we can sort the frequecies by decreasing order and return the top k values that match the frequencies.
+            => we must use a hashmap in this case because we need to be able to get the values based on the frequencies at the end
+            => the key will be the element in the array and the value will be the frequency
+        
+        Data structure: hashmap
+        Time complexity: O(nlogn)
+        Space complexity: O(n)
+        */ 
 
-        int[] result = new int[k];
         HashMap<Integer, Integer> map = new HashMap<>();
+        int[] result = new int[k];
 
-        // fill the map with element:frequency
+        // fill the map
         for (int num: nums){
-            if (map.containsKey(num)){
-                int val = map.get(num);
-                map.put(num, val + 1);
-            }
-            else{
-                map.put(num, 1);
-            }
+            map.put(num, map.getOrDefault(num, 0)+1);
         }
 
-        // Compare key-value in the map
-        // first, store each pair of key-value in a list
-        List<Integer[]> keyValArray = new ArrayList<>();
+        // sort the map by frequencies in decreasing order
+        // first, store all the pairs value-frequency of the hashmap into a list
+        // in th hash map, the pairs are in an array of length 2
+        //  => our list will be therefore a list of arrays, with each array being of length 2
+        List<Integer[]> lst = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry: map.entrySet()){
             Integer[] pair = {entry.getValue(), entry.getKey()};
-            keyValArray.add(pair);
+            lst.add(pair);
         }
 
-        // compare key-value pairs => sort them in descending order
-        // array1 represent the first array (which is the first pair) in the list of arrays
-        // array2 represent the second pair of key-value in the list of arrays
-        // array2[0] - array1[0] means that if the first element of array2 is > the first element of array1, move array2 in front of array1 (hence the list of arrays will be sorted from greatest to smallest)
-        keyValArray.sort((array1, array2) -> array2[0] - array1[0]);
+        // sort the list
+        // this effectively sort the list in decreasing order based on the frequency
+        // which is the first element in each array stored in lst
+        lst.sort((array1, array2)-> array2[0] - array1[0]);
 
-        // store the k elements that have the highest frequencies
+        // get k top elements
         for (int i = 0; i < k; i++){
-            result[i] = keyValArray.get(i)[1];
+            // lst.get(i)[1] => for the array at position i in lst, get the second value which is the key into the resulting array
+            result[i] = lst.get(i)[1];
         }
 
         return result;

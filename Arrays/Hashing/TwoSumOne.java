@@ -1,49 +1,59 @@
 package Arrays.Hashing;
 
 import java.util.HashMap;
-/*
- * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
- * You may assume that each input would have exactly one solution, and you may not use the same element twice.
- * You can return the answer in any order.
- * 
- */
+
 public class TwoSumOne {
     public int[] twoSum(int[] nums, int target) {
 
         /* 
-         * Brute force solution:
-         * // brute force
-            for (int i = 0; i < nums.length; i++){
-                for (int j = 1; j < nums.length; j++){
-                    if ((nums[i] + nums[j] == target) && i != j){
-                        int[] result = {i, j};
-                        return result;
+         * Brute force solution: for each element in the array, we will look for another element such that their sum is equal to target.
+         * This can be done using two nested loops.
+            * Data structure: Array
+            * Time complexity: O(n^2)
+            * Space complexity: O(1)
+            
+            int len = nums.length;
+            int[] result = new int[2];
+
+            for (int i = 0; i < len; i++){
+                for (int j = i+1; j < len; j++){
+                    if (nums[i] + nums[j] == target){
+                        result[0] = i;
+                        result[1] = j;
+                        break;
                     }
                 }
             }
-            return null;
-         * 
-         */
+            return result;
+         
+        */
 
-        // Create a HashMap to store the numbers and their indices
-        // The key is the number and the value is its index
-        // The time complexity is O(n) and the space complexity is O(n)
-        // The HashMap allows us to check if the complement of the current number exists in O(1) time
-        // The complement is the difference between the target and the current number
-        // If the complement exists in the HashMap, we have found the two numbers that add up to the target
-        // We return the indices of the two numbers
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int theDiff = 0;
+        /*
+            nums[i] + x = target => x = target - nums[i]
+            for each element in the array, we will look for x in the array
+            => since we only want the indices of the nums[i] and x, we can use a hashmap to store value:index pairs
+            we will compute target - nums[i] at each iteration and see if x is in the hashmap
+            if x is in the hashmap, we have found our two sum
+            if x is not in the hashmap, we will add nums[i] in the hashmap.
+
+            Data structure: HashMap
+            Time complexity: O(n)
+            Space complexity: O(n)
+        */
+        int len = nums.length;
         int[] result = new int[2];
-        for (int i = 0; i < nums.length; i++){
-            theDiff = target - nums[i];
-            if (map.containsKey(theDiff)){
-                result[0] = i;
-                result[1] = map.get(theDiff);
-                return result;
-            }
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-            map.put(nums[i], i);
+        for (int i = 0; i < len; i++){
+            
+            int diff = target - nums[i];
+            if (map.containsKey(diff)){
+                result[0] = map.get(diff);
+                result[1] = i;
+            }
+            else{
+                map.put(nums[i],i);
+            }
         }
         return result;
     }
