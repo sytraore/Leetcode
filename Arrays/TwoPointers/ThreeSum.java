@@ -44,13 +44,60 @@ public class ThreeSum {
 
         /*
             Optimal solution:
-                The sum of two numbers must cancel the third number for the sum of the three numbers be equal to 0.
                 Sort the array
                 for each element in the array, search for the two elements that will result in 0 if they get added to the current element.
+                The sum of the two elements must be equal to the opposite value of the current element for the sum of the three numbers be equal to 0. (if currElmnt = -5, the two other elements must sum up to 5)
 
                 Appropriate data structure: array
                 Appropriate algorithm: Two pointers
-        */
+                Time complexity: O(n^2)
+                Space complexity: O(1)
+         */
+        
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        int numsLen = nums.length;
+
+        for (int i = 0; i < numsLen; i++){
+            if (nums[i] > 0) {
+                break;
+            }
+
+            if (i > 0 && nums[i] == nums[i - 1]){
+                continue;
+            }
+
+            // find the two other element that sum up to 0 when added to nums[i]
+            int left = i + 1, right = numsLen - 1;
+            while (left < right){
+                int theSum = nums[i] + nums[left] + nums[right];
+
+                if (theSum < 0) {
+                    left++;
+                }
+
+                else if (theSum > 0){
+                    right --;
+                }
+
+                else {
+                    List<Integer> list = new ArrayList<>();
+                    list.add(nums[i]);
+                    list.add(nums[left]);
+                    list.add(nums[right]);
+                    result.add(list);
+                    
+                    left++;
+                    right--;
+
+                    while (left < right && nums[left] == nums[left-1]){
+                        left++;
+                    }
+                }
+            }
+        }
+
+        return result;
          
         
     }
