@@ -86,9 +86,14 @@ public class ThreeSum {
                     list.add(nums[right]);
                     result.add(list);
                     
+                    // look for the next triplet
                     left++;
                     right--;
 
+                    // we need to skip the duplicates
+                    // we need to make sure that the left pointer is still less than the right pointer
+                    // and that the element of the left pointer is not a duplicate of the previous element of the left pointer
+                    // if it is, we increment the left pointer until we find a different element
                     while (left < right && nums[left] == nums[left-1]){
                         left++;
                     }

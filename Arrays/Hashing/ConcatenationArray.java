@@ -35,5 +35,6 @@ public class ConcatenationArray {
         int[] nums = {1, 2, 3};
         int[] result = getConcatenation(nums);
         System.out.println(java.util.Arrays.toString(result)); // Output: [1, 2, 3, 1, 2, 3]
+        System.out.println("68477744a0522036e112db80".equals("68477744a0522036e112db80"));
     }
 }
