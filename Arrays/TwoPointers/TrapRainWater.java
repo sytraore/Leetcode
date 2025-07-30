@@ -1,7 +1,5 @@
 package Arrays.TwoPointers;
 
-import java.util.Arrays;
-
 public class TrapRainWater {
 
     public static int trap(int[] height) {
