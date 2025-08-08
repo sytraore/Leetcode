@@ -1,5 +1,5 @@
 package BinarySearch;
-import java.util.Arrays;
+
 public class FindMinimumInRotatedArray {
     public static int findMin(int[] nums) {
         /**
