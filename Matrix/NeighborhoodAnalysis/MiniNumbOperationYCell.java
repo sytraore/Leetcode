@@ -39,15 +39,20 @@ public class MiniNumbOperationYCell {
         HashMap<Integer, Integer> nonYMap = new HashMap<>();
 
         // save initial grid set up
-        // first save top left and top right
-        yMap.put(grid[0][0], yMap.getOrDefault(grid[0][0], 0) + 1);
-        // in case top left and top right are the same values, we will just increment the frequency of
-        // the value
-        yMap.put(grid[0][n - 1], yMap.getOrDefault(grid[0][n - 1], 0) + 1); 
-
-        // save the non-Y cells of the first row
-        for (int i = 1; i < n - 1; i++){
-            nonYMap.put(grid[0][i], nonYMap.getOrDefault(grid[0][i], 0) + 1);
+        for (int i = 0; i < n; i++){
+            // save top left
+            if (i == 0){
+                yMap.put(grid[i][0], yMap.getOrDefault(grid[i][0], 0) + 1);
+            }
+            // save top right
+            else if (i == n - 1){
+                yMap.put(grid[0][i], yMap.getOrDefault(grid[0][i], 0) + 1); 
+            }
+            // save the non-Y cells of the first row
+            else{
+                nonYMap.put(grid[0][i], nonYMap.getOrDefault(grid[0][i], 0) + 1);
+            }
+            
         }
 
         // save the cells from center to bottom for Y-cells
