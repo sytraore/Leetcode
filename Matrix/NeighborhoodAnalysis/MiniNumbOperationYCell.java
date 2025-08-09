@@ -55,19 +55,6 @@ public class MiniNumbOperationYCell {
             
         }
 
-        // save the cells from center to bottom for Y-cells
-        // save the non-Y cells from the center row to bottom row
-        for (int row = center; row < n; row++){
-            for (int col = 0; col < n; col++){
-                if (col == center){
-                    yMap.put(grid[row][center], yMap.getOrDefault(grid[row][center], 0) + 1);
-                }
-                else{
-                    nonYMap.put(grid[row][col], nonYMap.getOrDefault(grid[row][col], 0) + 1);
-                }
-            }
-        }
-
         // check if we haven't reached the center yet
         if (center != 1){
             for (int i = 1; i < center; i++){
@@ -90,6 +77,19 @@ public class MiniNumbOperationYCell {
                     col++;
                 }
                 
+            }
+        }
+
+        // save the cells from center to bottom for Y-cells
+        // save the non-Y cells from the center row to bottom row
+        for (int row = center; row < n; row++){
+            for (int col = 0; col < n; col++){
+                if (col == center){
+                    yMap.put(grid[row][center], yMap.getOrDefault(grid[row][center], 0) + 1);
+                }
+                else{
+                    nonYMap.put(grid[row][col], nonYMap.getOrDefault(grid[row][col], 0) + 1);
+                }
             }
         }
 
