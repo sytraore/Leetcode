@@ -42,7 +42,7 @@ public class RotateBox {
                     r = l;
 
                 }
-                // how do I handle this?
+                // stone box
                 else{
                     // We found a stone. Move it to the floor.
                     boxGrid[i][r] = '#';
