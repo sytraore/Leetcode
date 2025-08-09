@@ -58,6 +58,7 @@ public class ThreeSum {
         int numsLen = nums.length;
 
         for (int i = 0; i < numsLen; i++){
+            // the current elemnent must be negative or 0 to avoid duplicates
             if (nums[i] > 0) {
                 break;
             }
