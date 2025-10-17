@@ -62,6 +62,7 @@ public class LeetCodePractice {
         if (problems.isEmpty()) {
             return "No problems available to practice!";
         }
+        
         Random generator = new Random();
         String problemToSolve = problems.get(generator.nextInt(problems.size()));
         return problemToSolve;

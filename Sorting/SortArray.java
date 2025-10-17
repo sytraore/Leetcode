@@ -1,4 +1,4 @@
-package Arrays.Hashing;
+package Sorting;
 
 public class SortArray {
     // swap two numbers in an array
